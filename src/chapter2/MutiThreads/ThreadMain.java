@@ -10,12 +10,16 @@ public class ThreadMain {
         //ExtendsThead ext=new ExtendsThead();
         //ext.start();
         //实现runnable接口实现多线程,启动方法如下
-        //ImplRunnable ir=new ImplRunnable();
-        //new Thread(ir).start();
+        ImplRunnable ir=new ImplRunnable();
+        for (int i=0;i<5;i++
+             ) {
+            new Thread(ir,"Thread Name:("+i+")").start();
+        }
+
         //实现Callable接口的call方法,启动方法如下
-        ImplCallable ic=new ImplCallable();
-        FutureTask<String> futureTask=new FutureTask<>(ic);
-        new Thread(futureTask).start();
+        //ImplCallable ic=new ImplCallable();
+        //FutureTask<String> futureTask=new FutureTask<>(ic);
+        //new Thread(futureTask).start();
         System.out.println("This is the main thread");
     }
 }
