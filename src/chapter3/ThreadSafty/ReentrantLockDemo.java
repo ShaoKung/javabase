@@ -33,8 +33,9 @@ public class ReentrantLockDemo {
 }
 
 class Count {
+    final ReentrantLock lock = new ReentrantLock();
     public void get() {
-        final ReentrantLock lock = new ReentrantLock();
+
         try {
             lock.lock();
             System.out.println(Thread.currentThread().getName() + "get begin");
@@ -47,7 +48,6 @@ class Count {
     }
 
     public void put() {
-        final ReentrantLock lock = new ReentrantLock();
         try {
             lock.lock();
             System.out.println(Thread.currentThread().getName() + "put begin");
