@@ -15,22 +15,6 @@ import java.util.regex.Pattern;
 
 public class Test {
 
-    static{
-        System.out.println("test1");
-    }
-    {
-        System.out.println("test2");
-    }
-
-
-    public static void main(String[] args) {
-
-            Test test=new Test();
-            //test.forRound();
-            //test.spit();
-            test.StrValue();
-    }
-
 
     public void DistinctList(){
         List<Map<String,String>> oList=new ArrayList<>();
@@ -121,4 +105,30 @@ public class Test {
         String he="he"+new String("llo");
         System.out.println(hi==he);
     }
+
+    public static void pattern() {
+        String regu=".*SR.*|.*Emini.*";
+        String[] regList=regu.split("\\|");
+        boolean devFlag=false;
+        for(String s:regList){
+            //System.out.println(Pattern.matches(s,"SR"));
+            if(Pattern.matches(s,"SR")){
+                devFlag=true;
+            }
+        }
+        System.out.println(devFlag);
+
+    }
+
+
+    public static void main(String[] args) {
+
+        //Test test=new Test();
+        //test.forRound();
+        //test.spit();
+        //test.StrValue();
+        pattern();
+    }
+
+
 }
