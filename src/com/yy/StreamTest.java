@@ -14,78 +14,8 @@ import java.util.stream.Stream;
 public class StreamTest {
 
     public static void main(String args[]){
-        System.out.println("使用 Java 7: ");
+        sub();
 
-        // 计算空字符串
-        List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
-        System.out.println("列表: " +strings);
-        long count = getCountEmptyStringUsingJava7(strings);
-
-        System.out.println("空字符数量为: " + count);
-        count = getCountLength3UsingJava7(strings);
-
-        System.out.println("字符串长度为 3 的数量为: " + count);
-
-        // 删除空字符串
-        List<String> filtered = deleteEmptyStringsUsingJava7(strings);
-        System.out.println("筛选后的列表: " + filtered);
-
-        // 删除空字符串，并使用逗号把它们合并起来
-        String mergedString = getMergedStringUsingJava7(strings,", ");
-        System.out.println("合并字符串: " + mergedString);
-        List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
-
-        // 获取列表元素平方数
-        List<Integer> squaresList = getSquares(numbers);
-        System.out.println("平方数列表: " + squaresList);
-        List<Integer> integers = Arrays.asList(1,2,13,4,15,6,17,8,19);
-
-        System.out.println("列表: " +integers);
-        System.out.println("列表中最大的数 : " + getMax(integers));
-        System.out.println("列表中最小的数 : " + getMin(integers));
-        System.out.println("所有数之和 : " + getSum(integers));
-        System.out.println("平均数 : " + getAverage(integers));
-        System.out.println("随机数: ");
-
-        // 输出10个随机数
-        Random random = new Random();
-
-        for(int i=0; i < 10; i++){
-            System.out.println(random.nextInt());
-        }
-
-        System.out.println("使用 Java 8: ");
-        System.out.println("列表: " +strings);
-
-        count = strings.stream().filter(string->string.isEmpty()).count();
-        System.out.println("空字符串数量为: " + count);
-
-        count = strings.stream().filter(string -> string.length() == 3).count();
-        System.out.println("字符串长度为 3 的数量为: " + count);
-
-        filtered = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.toList());
-        System.out.println("筛选后的列表: " + filtered);
-
-        mergedString = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.joining(", "));
-        System.out.println("合并字符串: " + mergedString);
-
-        squaresList = numbers.stream().map( i ->i*i).distinct().collect(Collectors.toList());
-        System.out.println("Squares List: " + squaresList);
-        System.out.println("列表: " +integers);
-
-        IntSummaryStatistics stats = integers.stream().mapToInt((x) ->x).summaryStatistics();
-
-        System.out.println("列表中最大的数 : " + stats.getMax());
-        System.out.println("列表中最小的数 : " + stats.getMin());
-        System.out.println("所有数之和 : " + stats.getSum());
-        System.out.println("平均数 : " + stats.getAverage());
-        System.out.println("随机数: ");
-
-        random.ints().limit(10).sorted().forEach(System.out::println);
-
-        // 并行处理
-        count = strings.parallelStream().filter(string -> string.isEmpty()).count();
-        System.out.println("空字符串的数量为: " + count);
     }
 
     private static int getCountEmptyStringUsingJava7(List<String> strings){
@@ -189,5 +119,36 @@ public class StreamTest {
 
     private static int getAverage(List<Integer> numbers){
         return getSum(numbers) / numbers.size();
+    }
+
+
+    private static void conLong(){
+        String feeCb="3000";
+        System.out.println(Long.parseLong(feeCb));
+    }
+
+    private static void sub(){
+        String feeCb="075900305762";
+        System.out.println(feeCb.substring(0,4));
+    }
+
+    private static void fee(){
+        String feeCb="075900305762";
+        long cbFee=0;
+        List<Map<String,Object>> nf=new ArrayList<>();
+        Map<String,Object> nMap1=new HashMap<>();
+        nMap1.put("MONEY","100");
+        Map<String,Object> nMap2=new HashMap<>();
+        nMap2.put("MONEY","200");
+        Map<String,Object> nMap3=new HashMap<>();
+        nMap3.put("MONEY","300");
+        nf.add(nMap1);
+        nf.add(nMap2);
+        nf.add(nMap3);
+        for(Map<String,Object> iMap:nf){
+            cbFee=Long.valueOf((String)iMap.get("MONEY"));
+        }
+
+        System.out.println(feeCb.substring(0,4));
     }
 }
